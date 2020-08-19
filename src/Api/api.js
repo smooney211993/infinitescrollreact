@@ -8,7 +8,6 @@ const GetImages = (ready) =>{
     useEffect(()=>{
         const getRandomImagesFromApi =  async () =>{
             try {
-                setLoaded(true)
                 const response =  await fetch(url, {headers: {Authorization: `Client-ID ${apiKey}`}});
                 if(response.ok){
                     const jsonResponse = await response.json();
@@ -27,9 +26,7 @@ const GetImages = (ready) =>{
                 
             } catch(error){
                 console.log("Error fetching from unsplash apl", error)
-            } finally {
-                setLoaded(false)
-            }
+            } 
         }
 
         getRandomImagesFromApi()
